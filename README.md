@@ -8,6 +8,20 @@
 
 ## 🇨🇳 中文
 
+## 退役声明：一个 AI 脚手架是怎样过期的
+
+**项目状态：退役中。** VASMC 不再推荐用于新项目，也不再规划新功能。现有代码、包和文档保留，供已接入的项目逐步迁移；现有命令并未因此停用。
+
+我曾认为，prompt 和 skill 值得作为软件资产管理：从源文件组合，锁定依赖，生成语言版本，并持续维护它们之间的来源与版本关系。模型会吸收通用 AI 脚手架提供的能力，本就在预期内。我高估的是，在日常使用中，长期维持这套关系能带来多少收益。
+
+VASMC 于 2026 年 2 月创建。短短七个月后，在我的实际工作中，模型往往已经可以按项目需要形成相应的 prompt 或 skill，也可以参考已有内容，再在项目内独立维护。旧指令仍可提供帮助，但项目中的后续演化未必需要持续依附于它的源头；源头本身也可能很快停止维护或失去参考价值。此时，维持源文件、依赖、生成产物和语言版本之间的精确对应，逐渐成了一项缺少实际回报的工作。
+
+因此，我决定停止继续扩展 VASMC。这个决定来自它在实际工作中的使用频率和维护负担。项目的意图、约束、重要历史，以及 AI 实际依据什么采取行动、改变了什么、最终被人接受了什么，仍值得认真保存。
+
+对执行型 prompt 和 skill 而言，多语言更多服务人的阅读；但在我的实际工作中，人已很少直接阅读这些指令，预先编译语言版本也就很难带来收益。确需锁定 instruction artifact 的项目仍可使用现有版本，并在迁移时保留必要的发布检查。
+
+参见：[AI 脚手架的半衰期](https://glenzli.com/notes/half-life-of-ai-scaffolding/)。能继续运行，不等于仍值得继续维护。
+
 ![VASMC 编译流程](docs/assets/vasmc-banner.png)
 
 VASMC 是用于 prompt、skill 和 AI 项目文档的 Markdown 编译器。它把 `.vasm.md` 源文件展开为 `.md` 产物，并把需要继续处理的事项写入 `.vasmc/build-report.yaml`。
@@ -15,6 +29,8 @@ VASMC 是用于 prompt、skill 和 AI 项目文档的 Markdown 编译器。它�
 `@vasm/cli` 负责 import 展开、依赖锁定、语言过滤、输出路由和策略诊断等确定性工作，不调用模型。翻译、语义审查和项目上下文检查由执行构建的 AI 编辑器或开发者根据报告完成。
 
 ## 快速开始
+
+以下命令保留供现有项目使用和迁移参考，不建议用于新项目初始化。
 
 ```bash
 npm install -g @vasm/cli
@@ -88,6 +104,20 @@ npm run release -- --dry-run
 
 ## 🌍 English
 
+## Retirement notice: How an AI scaffold became obsolete
+
+**Project status: retiring.** VASMC is no longer recommended for new projects, and no new features are planned. Existing code, packages, and documentation remain available while current users migrate; existing commands have not been disabled.
+
+I once thought prompts and skills were worth managing as software assets: composing them from source files, pinning dependencies, generating language variants, and maintaining their provenance and version relationships over time. I already expected models to absorb the capabilities supplied by general AI scaffolding. What I overestimated was the practical return from maintaining those relationships over the long term.
+
+VASMC began in February 2026. Just seven months later, in my actual work, models can often form the prompt or skill a project needs, or consult existing material and then maintain their own versions within the project. Older instructions can still help, but subsequent changes within a project need not remain tied to the original source; that source may itself quickly stop being maintained or lose its relevance. Maintaining precise relationships between source files, dependencies, generated outputs, and language variants has gradually become work with little practical return.
+
+I have therefore decided to stop expanding VASMC. This decision reflects how often it is used and the effort required to maintain it in my actual work. Project intent, constraints, important history, and what AI actually based its actions on, what it changed, and what people ultimately accepted still deserve careful preservation.
+
+For executable prompts and skills, multiple languages mainly serve human readers; in my actual workflow, people rarely read those instructions directly anymore, so precompiled language variants add little value. Projects that need pinned instruction artifacts can continue using the existing version and retain the release checks they need during migration.
+
+See [The Half-Life of AI Scaffolding](https://glenzli.com/en/notes/half-life-of-ai-scaffolding/). A tool can still run without being worth continued maintenance.
+
 ![VASMC compile flow](docs/assets/vasmc-banner.png)
 
 VASMC is a Markdown compiler for prompts, skills, and AI project documentation. It expands `.vasm.md` source files into `.md` output and records follow-up work in `.vasmc/build-report.yaml`.
@@ -95,6 +125,8 @@ VASMC is a Markdown compiler for prompts, skills, and AI project documentation. 
 `@vasm/cli` performs deterministic work such as import expansion, dependency locking, language filtering, output routing, and policy diagnostics. It does not call a model. Translation, semantic review, and project-context checks are completed by the AI editor or developer running the build, based on the report.
 
 ## Quick Start
+
+These commands remain for existing projects and migration reference. Starting a new project with VASMC is no longer recommended.
 
 ```bash
 npm install -g @vasm/cli
